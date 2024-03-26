@@ -1,33 +1,89 @@
-﻿# The script of the game goes in this file.
+﻿
+# personagens
+define p = Character("Pisquinha")
+define h = Character("Husky")
+define k = Character("Kai")
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
 
-define e = Character("Eileen")
-
-
-# The game starts here.
+# o Jogo começa aqui
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    scene noite
+    with fade
 
-    scene bg room
+    play sound "audio_narra1.mp3"
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    "Dois irmãos Pisquinha e Husk lutam pela liberdade do clã dos lobos"
 
-    show eileen happy
+    show pisquinha at left
+    with dissolve
 
-    # These display lines of dialogue.
+    p "Não quero brigar com você irmão"
 
-    e "You've created a new Ren'Py game."
+    p "Esta luta não faz sentido pra mim"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    hide pisquinha
 
-    # This ends the game.
+    show husky at right
+    with dissolve
+
+    h "Deixa de conversa mole Pisquinha"
+
+    h "Isto pra mim tem outro nome"
+
+    h "Covardia!"  
+
+    hide husky
+
+    "Pisquinha deve enfrentar o irmão Husk?"
+
+menu:
+
+    "Sim":
+        jump game
+
+    "Não":
+        jump book
+
+label game:
+
+    show pisquinha at right
+    with dissolve
+
+    p "Se não outra escolha, eu estou pronto irmão"
+
+    hide pisquinha
+
+    show husky at right
+    with dissolve
+
+    h "Farei o que deve ser feito"
+
+    hide husky
+
+    jump marry
+
+label book:
+
+    show husky at right
+    with dissolve
+
+    h "Você não tem escolha, lembre-se a força vem do seu interior"
+
+    hide husky
+
+    show pisquinha at left
+    with dissolve
+
+    p "Eu não queria, mas é o unico jeito"
+    
+    hide pisquinha
+
+    jump marry
+
+label marry:
+
+    "Os irmão batalham"  
 
     return
